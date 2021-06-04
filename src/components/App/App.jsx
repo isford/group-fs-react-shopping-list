@@ -2,7 +2,8 @@ import React from 'react';
 
 import Header from '../Header/Header.jsx'
 import './App.css';
-import ShoppingList from '../ShoppingList/ShoppingList'
+import ShoppingForm from '../ShoppingForm/ShoppingForm';
+import ShoppingList from '../ShoppingList/ShoppingList';
 
 function App() {
     return (
@@ -12,7 +13,7 @@ function App() {
 
 
                 <section>Dillons AREA</section>
-
+            <ShoppingForm />
 
                 <p>Under Construction...</p>
 
