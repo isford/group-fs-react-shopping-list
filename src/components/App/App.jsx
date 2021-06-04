@@ -9,7 +9,19 @@ function App() {
         <div className="App">
             <Header />
             <main>
+
+
+                <section>Dillons AREA</section>
+
+
                 <p>Under Construction...</p>
+
+                <section>Ians AREA</section>
+
+
+                <section>Bens AREA</section>
+
+                
             </main>
         </div>
     );
