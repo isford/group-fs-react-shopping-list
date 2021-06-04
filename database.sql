@@ -5,7 +5,7 @@ CREATE TABLE "list" (
 	"id" SERIAL PRIMARY KEY,
 	"name" VARCHAR(50) NOT NULL,
 	"quantity" INT NOT NULL,
-	"unit" VARCHAR NOT NULL,
+	"unit" VARCHAR(100) NOT NULL,
 	"purchased" BOOLEAN DEFAULT FALSE
 	);
 	
