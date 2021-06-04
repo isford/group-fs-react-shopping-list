@@ -20,7 +20,7 @@ function App() {
 
     
     //Ben's work area
-    let [shoppingList, setShoppingList] = useState('[]');
+    let [shoppingList, setShoppingList] = useState([]);
     let [newItem, setNewItem] = useState('');
     let [newQuantity, setNewQuantity] = useState('');
     let [newUnit, setNewUnit] = useState('');
@@ -35,6 +35,7 @@ function App() {
         axios.get('/list')
         .then(response => {
             setShoppingList(response.data)
+            console.log('GET RESPONSE>DATA', response.data)
         })
         .catch(err => {
             console.log('Error in get', err)
@@ -69,7 +70,7 @@ function App() {
 
                 <ShoppingList />
                 <section>Bens AREA</section>
-                <ShoppingItems />
+                <ShoppingItems shoppingList={shoppingList} />
 
                 
             </main>
