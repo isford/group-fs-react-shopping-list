@@ -65,27 +65,27 @@ function App() {
             <main>
 
 
-                <section>Dillons AREA</section>
-            <ShoppingForm 
-               newItemName={newItemName}
-               setNewItemName={setNewItemName}
-               newQuantity={newQuantity}
-               setNewQuantity={setNewQuantity}
-               newUnit={newUnit}
-               setNewUnit={setNewUnit} 
-               addItem={addItem}
+            <div>
+                <ShoppingForm 
+                    newItemName={newItemName}
+                    setNewItemName={setNewItemName}
+                    newQuantity={newQuantity}
+                    setNewQuantity={setNewQuantity}
+                    newUnit={newUnit}
+                    setNewUnit={setNewUnit} 
+                    addItem={addItem}
                 />
+            </div>
 
-                <p>Under Construction...</p>
 
-                <section>Ians AREA</section>
-
+            <div>
                 <ShoppingList 
                 shoppingList={shoppingList}
                 getShoppingList={getShoppingList}/>
-                <section>Bens AREA</section>
+            </div>
+            <div>
                 <ShoppingItems shoppingList={shoppingList} />
-
+            </div>
                 
             </main>
         </div>
