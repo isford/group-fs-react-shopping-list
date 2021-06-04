@@ -19,13 +19,23 @@ function ShoppingList({shoppingList, getShoppingList}) {
         .catch( err => {
             alert('Error while resetting items');
             console.log(err);
-        })
+        });
     }
     
     const handleClear = () => {
         console.log('Clear button clicked')
-        //Delete all items from DB DROP TABLE
-        //let 
+        //Delete all items from TABLE
+        axios.delete( '/list' )
+        .then( response => {
+            console.log('all items deleted!');
+
+            getShoppingList();
+        })
+        .catch( err => {
+            alert('Error while deleting items');
+            console.log( err );
+        });
+
     }
 
 

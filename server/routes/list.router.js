@@ -57,4 +57,19 @@ router.put('/', (req, res) => {
         })
 })
 
+//DELETE
+
+router.delete('/', (req, res) => {
+    const queryText = `TRUNCATE TABLE list;`;
+
+    pool.query(queryText)
+    .then((response) =>{
+        console.log('Table was truncced');
+        res.sendStatus(200);
+    }).catch ((err) => {
+        console.log('IT DIDNT TRUNC', err);
+        res.sendStatus(500);
+    })
+})
+
 module.exports = router;
