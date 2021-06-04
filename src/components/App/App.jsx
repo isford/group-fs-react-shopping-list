@@ -51,6 +51,7 @@ function App() {
         axios.get('/list')
         .then(response => {
             setShoppingList(response.data)
+            console.log('GET RESPONSE>DATA', response.data)
         })
         .catch(err => {
             console.log('Error in get', err)
@@ -81,7 +82,7 @@ function App() {
 
                 <ShoppingList />
                 <section>Bens AREA</section>
-                <ShoppingItems shoppingList={shoppingList}/>
+                <ShoppingItems shoppingList={shoppingList} />
 
                 
             </main>
