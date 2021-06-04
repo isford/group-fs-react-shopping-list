@@ -1,4 +1,5 @@
 //import ShoppingList from "../ShoppingList/ShoppingList";
+import "./ShoppingItems.css"
 
 function ShoppingItems ({shoppingList}) {
 
@@ -6,10 +7,8 @@ function ShoppingItems ({shoppingList}) {
     return (
 
         <>
-            <p>Test</p>
-    
             {shoppingList.map(item => (
-                <p key = {item.id}> {item.name}, {item.quantity}, {item.unit}</p>
+                <p key={item.id} className="food"> {item.name}, {item.quantity}, {item.unit}</p>
             ))}
         <p></p>
         </>
