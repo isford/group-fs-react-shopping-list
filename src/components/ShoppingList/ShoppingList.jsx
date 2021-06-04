@@ -6,6 +6,7 @@ function handleReset(){
 function handleClear(){
     console.log('Clear button clicked')
     //Delete all items from DB DROP TABLE
+    //let 
 }
 
 
