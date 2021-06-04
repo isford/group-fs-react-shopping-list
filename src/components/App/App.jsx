@@ -3,7 +3,7 @@ import React from 'react';
 import Header from '../Header/Header.jsx'
 import './App.css';
 import ShoppingForm from '../ShoppingForm/ShoppingForm';
-
+import ShoppingList from '../ShoppingList/ShoppingList';
 
 function App() {
     return (
@@ -19,7 +19,7 @@ function App() {
 
                 <section>Ians AREA</section>
 
-
+                <ShoppingList />
                 <section>Bens AREA</section>
 
                 
