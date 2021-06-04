@@ -35,5 +35,26 @@ router.post('/', (req, res) => {
         })
 })
 
+//PUT Request
+router.put('/', (req, res) => {
+    //let itemId = req.params.id;
+    //console.log('itemId in router', itemId);
+
+    //let purchasedItem = req.body.purchased
+    //console.log(req.body);
+    //console.log(purchasedItem);
+
+    let queryString = `UPDATE "list" SET "purchased" = FALSE`;
+
+    pool.query(queryString)
+        .then(response => {
+            console.log(response.rowCount);
+            res.sendStatus(202);
+        })
+        .catch(err => {
+            console.log(err);
+            res.sendStatus(500);
+        })
+})
 
 module.exports = router;

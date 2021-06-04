@@ -21,7 +21,7 @@ function App() {
         .then( response => {
 
             //refresh item list? = talk to Ian and Ben what this is officially called
-            // getItems();
+            getShoppingList();
         })
         .catch( err => {
             alert('Error adding item!');
@@ -80,7 +80,9 @@ function App() {
 
                 <section>Ians AREA</section>
 
-                <ShoppingList />
+                <ShoppingList 
+                shoppingList={shoppingList}
+                getShoppingList={getShoppingList}/>
                 <section>Bens AREA</section>
                 <ShoppingItems shoppingList={shoppingList} />
 
