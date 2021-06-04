@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-function ShoppingForm () {
+function ShoppingForm ({ addItem }) {
 
     const [item, setItem] = useState({ name: '', quantity: '', unit: '', purchased: ''});
 
@@ -9,7 +10,7 @@ function ShoppingForm () {
         event.preventDefault();
         console.log('in handleSubmit', item);
         // ? This might change based on what the function is called in Ian's part
-        // addItem(item);
+        addItem(item);
         clearItemFields();
     }
 
@@ -38,5 +39,12 @@ function ShoppingForm () {
         </>
     )
 }
+
+// PropTypes is an optional library that helps developers.
+// This will tell the parent component what functions it must implement to 
+// use this component. And it throws an error that is easy to find for a developer if they forget it.
+ShoppingForm.propTypes = {
+    addItem: PropTypes.func.isRequired,
+};
 
 export default ShoppingForm;

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import axios from 'axios';
 import Header from '../Header/Header.jsx'
 import './App.css';
 import ShoppingForm from '../ShoppingForm/ShoppingForm';
@@ -8,7 +8,22 @@ import ShoppingList from '../ShoppingList/ShoppingList';
 function App() {
 
     //Dillon's work area
+    //This function is called by the ShoppingForm when the submit (Save) button is pressed
+    const addItem = (newItem) => {
+        console.log('newItem: ', newItem);
 
+        //POST data here
+        axios.post( '/list', newItem )
+        .then( response => {
+
+            //refresh item list? = talk to Ian and Ben what this is officially called
+            // getItems();
+        })
+        .catch( err => {
+            alert('Error adding item!');
+            console.log( err );
+        })
+    }
 
 
     //Ian's work area
@@ -19,7 +34,7 @@ function App() {
 
 
 
-    
+
 
     return (
         <div className="App">
@@ -28,7 +43,7 @@ function App() {
 
 
                 <section>Dillons AREA</section>
-            <ShoppingForm />
+            <ShoppingForm addItem={addItem}/>
 
                 <p>Under Construction...</p>
 
