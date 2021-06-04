@@ -57,6 +57,24 @@ router.put('/', (req, res) => {
         })
 })
 
+router.put( '/:id', (req, res) => {
+    console.log('got to /list/id' );
+
+    const itemId = req.params.id;
+
+    queryText = `UPDATE "list" SET "purchased"=false  WHERE "list".id = $1;`;
+
+    pool.query( queryText, [itemId] )
+    .then( response => {
+        console.log( response.rowCount );
+        res.sendStatus(202);
+    })
+    .catch ( err => {
+        console.log( 'error in PUT on server', err );
+        res.sendStatus( 500 )
+    });
+})
+
 //DELETE
 
 router.delete('/', (req, res) => {
@@ -70,6 +88,21 @@ router.delete('/', (req, res) => {
         console.log('IT DIDNT TRUNC', err);
         res.sendStatus(500);
     })
+})
+
+router.delete('/:id', (req, res) => {
+    console.log('got to delete id');
+    
+    const deleteId = req.params.id;
+    let queryText = `DELETE FROM "list" WHERE "id" = $1;`;
+
+    pool.query(queryText, [deleteId])
+        .then((result) => {
+            console.log('item was deleted', result);
+            res.sendStatus(204)
+        }).catch((error) => {
+            console.log(error);
+        })
 })
 
 module.exports = router;
