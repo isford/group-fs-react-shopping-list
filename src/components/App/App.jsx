@@ -2,6 +2,7 @@ import React from 'react';
 
 import Header from '../Header/Header.jsx'
 import './App.css';
+import ShoppingForm from '../ShoppingForm/ShoppingForm';
 
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
 
 
                 <section>Dillons AREA</section>
-
+            <ShoppingForm />
 
                 <p>Under Construction...</p>
 
