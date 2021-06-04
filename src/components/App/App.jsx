@@ -13,21 +13,21 @@ function App() {
     
     //Dillon's work area
     //This function is called by the ShoppingForm when the submit (Save) button is pressed
-    // const addItem = (newItem) => {
-    //     console.log('newItem: ', newItem);
+    const addItem = () => {
+        console.log('newItem: ', { name: newItemName, quantity: newQuantity, unit: newUnit });
 
-    //     //POST data here
-    //     axios.post( '/list', newItem )
-    //     .then( response => {
+        //POST data here
+        axios.post( '/list', { name: newItemName, quantity: newQuantity, unit: newUnit, purchase: false })
+        .then( response => {
 
-    //         //refresh item list? = talk to Ian and Ben what this is officially called
-    //         // getItems();
-    //     })
-    //     .catch( err => {
-    //         alert('Error adding item!');
-    //         console.log( err );
-    //     })
-    // }
+            //refresh item list? = talk to Ian and Ben what this is officially called
+            // getItems();
+        })
+        .catch( err => {
+            alert('Error adding item!');
+            console.log( err );
+        })
+    }
 
 
     //Ian's work area
@@ -36,8 +36,8 @@ function App() {
 
     
     //Ben's work area
-    let [shoppingList, setShoppingList] = useState('[]');
-    let [newItem, setNewItem] = useState('');
+    let [shoppingList, setShoppingList] = useState([]);
+    let [newItemName, setNewItemName] = useState('');
     let [newQuantity, setNewQuantity] = useState('');
     let [newUnit, setNewUnit] = useState('');
     
@@ -57,18 +57,6 @@ function App() {
         })
     }
     
-
-    //POST
-    const addItem = () => {
-        axios.post('/list', {name: newItem, quantity: newQuantity, unit: newUnit})
-        .then(response => {
-            setNewItem('');
-            setNewQuantity('');
-            setNewUnit('');
-        }).catch(err => {
-            console.log('Error in post', err)
-        })
-    }
     
     return (
         <div className="App">
@@ -77,7 +65,15 @@ function App() {
 
 
                 <section>Dillons AREA</section>
-            <ShoppingForm addItem={addItem}/>
+            <ShoppingForm 
+               newItemName={newItemName}
+               setNewItemName={setNewItemName}
+               newQuantity={newQuantity}
+               setNewQuantity={setNewQuantity}
+               newUnit={newUnit}
+               setNewUnit={setNewUnit} 
+               addItem={addItem}
+                />
 
                 <p>Under Construction...</p>
 
@@ -85,7 +81,7 @@ function App() {
 
                 <ShoppingList />
                 <section>Bens AREA</section>
-                <ShoppingItems />
+                <ShoppingItems shoppingList={shoppingList}/>
 
                 
             </main>
