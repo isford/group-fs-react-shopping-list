@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function ShoppingForm () {
+function ShoppingForm ({addItem}) {
 
     const [item, setItem] = useState({ name: '', quantity: '', unit: '', purchased: ''});
 
